@@ -1,0 +1,17 @@
+# Release record for the public GitHub Release downloads-e3d036a6f643.
+# Informative copy: the authoritative pin used by the TAM Center download
+# server is kept in the reviewed TAM Center source. Parsed line by line by
+# tools/check-release-asset.sh, never executed.
+format=tam-download-release/1
+release_id=downloads-e3d036a6f643
+repository=radionu/tam-agent
+tag=downloads-e3d036a6f643
+asset_name=tam-downloads-e3d036a6f643.tar.gz
+asset_size=11786806
+asset_sha256=661937b47e29d6b5038a14d07dc8f45f1896b5b6083783d0937dd127ce911eef
+archive_root=tam-downloads
+publisher_sha256=f534075f5022465f7bd3d5d78090e80a4d7c0e2489521d68b6a9ccb9aaefd399
+tree_sums_sha256=d02b3e9c3d566f0f19415e5beef45859c28705225e28595afa325ac6e20eb730
+testclient_commit=ae4cda290ab18ff5db871b85e0063a835e27fec8
+installer_commit=e3d036a6f64321fce28f8ed028a9870ae627dd54
+installer_sha256=979efbfbad3356b97e03bf8d9099fca2ba51dba98f9ce44207f16aa8ea941fe3
