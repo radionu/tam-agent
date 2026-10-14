@@ -1,0 +1,4 @@
+# Release assets are published as GitHub Release assets, never committed.
+*.tar.gz
+*.tgz
+/dist/
