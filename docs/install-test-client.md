@@ -14,8 +14,8 @@ From an authorized TAM operator, through a private channel (not a public chat, t
    - installer commit `e3d036a6f64321fce28f8ed028a9870ae627dd54`
    - SHA-256 `979efbfbad3356b97e03bf8d9099fca2ba51dba98f9ce44207f16aa8ea941fe3`
 
-   The same values are in this repository (`releases/downloads-e3d036a6f643/RELEASE.md`), which is a second, independent source to compare with.
-2. For a new test identity only: a one-time **enrollment link token** for exactly one device, created by the operator in the TAM Console. It expires (48 hours by default) and can be used by one client only. Keep it secret; it is never needed for installing or updating the program.
+   The same values are in this repository (`releases/downloads-e3d036a6f643/RELEASE.md`), which provides another place to compare the pins. These checksums are not a publisher signature; establish the expected values through the authorized operator before execution.
+2. For a new test identity only: a one-time **enrollment link token** for exactly one device, created by the operator in the TAM Console. It expires (48 hours by default, adjustable from 1 to 168 hours) and is scoped to one device and one client, with bounded same-client retry. The operator can revoke or replace it. Keep it secret; it is never needed for installing or updating the program.
 
 ## Install or update the program
 

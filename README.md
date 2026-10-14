@@ -4,7 +4,7 @@ Client software and release distribution for TAM (Telemetry, Alerting and Monito
 
 ## Status
 
-No managed TAM agent is published here yet. This repository currently distributes the reviewed **edge test client** download bundle used in the TAM test environment, as GitHub Release assets:
+No managed TAM agent is published here yet. This repository currently prepares delivery of the reviewed **edge test client** download bundle used in the TAM test environment, as GitHub Release assets:
 
 | Release | Content | State |
 |---|---|---|
