@@ -4,11 +4,11 @@ Client software and release distribution for TAM (Telemetry, Alerting and Monito
 
 ## Status
 
-No managed TAM agent is published here yet. This repository currently prepares delivery of the reviewed **edge test client** download bundle used in the TAM test environment, as GitHub Release assets:
+No managed TAM agent is published here yet. This repository currently distributes the reviewed **edge test client** download bundle used in the TAM test environment, as GitHub Release assets:
 
 | Release | Content | State |
 |---|---|---|
-| `downloads-e3d036a6f643` | Edge test client build `ae4cda2…` (Linux amd64/arm64) and its installer `e3d036a…` | Prepared and checked; published only when the release exists on the Releases page |
+| `downloads-e3d036a6f643` | Edge test client build `ae4cda2…` (Linux amd64/arm64) and its installer `e3d036a…` | [Published prerelease](https://github.com/radionu/tam-agent/releases/tag/downloads-e3d036a6f643); public archive verified on 2026-10-14 |
 
 The edge test client is test software: no service, no automatic or Center-managed update, no Windows build. The planned managed agent (outbound communication with TAM Center, enrollment, heartbeat telemetry and centrally managed updates) is not implemented here yet.
 
