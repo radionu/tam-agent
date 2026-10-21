@@ -1,0 +1,51 @@
+# Publishes one reviewed staging commit pushed to release-stage/<kind>/<tag>.
+# Source of truth: radionu/tam-logcenter deploy/github/tam-agent and
+# edge/scripts/release-publish.py; see docs/edge-release-publication.md there.
+# The publisher never deletes, replaces or overwrites release assets or refs;
+# staging branches are kept and removed after review outside this workflow.
+name: Publish staged release
+
+on:
+  push:
+    branches: ['release-stage/**']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-staged-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.event.deleted == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Fetch the staging commit and the default branch without stored credentials
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          git init -q stage
+          git -C stage fetch -q --no-tags --depth=2 "https://github.com/${GITHUB_REPOSITORY}.git" \
+            "+${GITHUB_REF}:refs/stage" "+refs/heads/${DEFAULT_BRANCH}:refs/remotes/origin/${DEFAULT_BRANCH}"
+          test "$(git -C stage rev-parse refs/stage)" = "${GITHUB_SHA}"
+          git -C stage checkout -q --detach "${GITHUB_SHA}"
+          git -C stage rev-parse "refs/remotes/origin/${DEFAULT_BRANCH}" > target-commit
+
+      - name: Check the reviewed publisher bytes
+        run: |
+          set -euo pipefail
+          echo "4e19cade517aa2994a4f7d8c9938799f21597bcc7b04e05df906420934b8d110  stage/.github/release-publisher/release-publish.py" | sha256sum -c -
+
+      - name: Validate and publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Raw base64url TAM publisher key (kid wyRn-bqwrxUTw37tm3c0r5blQ1Qefe5gfld8ml2kETU).
+          TAM_PUBLISHER_KEY: Jg3ms7PuMEw-bu1dieZxuwtZ8FfnFGyG-Tibj70tO54
+        run: |
+          set -euo pipefail
+          python3 -I stage/.github/release-publisher/release-publish.py publish \
+            --stage-root stage --repository "${GITHUB_REPOSITORY}" --ref "${GITHUB_REF}" \
+            --target "$(cat target-commit)" --publisher-key "${TAM_PUBLISHER_KEY}"
