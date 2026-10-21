@@ -1,0 +1,33 @@
+{
+  "assets": {
+    "bootstrap-descriptor.json": {
+      "sha256": "2be06b071469632e8e8034bad17802d4af387a9aff4aa276a04ced822f4a3982",
+      "size": 1316
+    },
+    "tam-edge-admin": {
+      "sha256": "514d523c1b4e6d7b9a404b02f8f7cac7219dd3627eec7575e8bfce8092360693",
+      "size": 11952193
+    },
+    "tam-edge-runtime@.service": {
+      "sha256": "52246bbebaf96c516454d57c79915a353b6ddb81ff8e6564ec686faa38015909",
+      "size": 708
+    },
+    "tam-edge-supervisor": {
+      "sha256": "49a7dee7fb60b30f2357c7bf04c1c018e9fc551d61caf4f041153af8e843857d",
+      "size": 11341872
+    },
+    "tam-edge-supervisor@.service": {
+      "sha256": "85edf39962ea84cbf44bb1950b29b99bdb93612d4e2acf44864e04cdd424d7b2",
+      "size": 881
+    },
+    "tam-managed-download.py": {
+      "sha256": "c60773cde8863638e4bf1ed47a4541214ef59f0973ae4653f32b5a58515a83e2",
+      "size": 9807
+    }
+  },
+  "existing": {},
+  "format": "tam-release-stage/1",
+  "kind": "bootstrap",
+  "repository": "radionu/tam-agent",
+  "tag": "bootstrap-2792daeb0c38d9ea62f02423cab84742e1947537-amd64"
+}
