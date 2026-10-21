@@ -1,0 +1,35 @@
+[Unit]
+Description=TAM edge identity and update supervisor (%i)
+After=network.target
+StartLimitIntervalSec=120
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=root
+Group=tam-edge-%i
+RuntimeDirectory=tam-edge/%i
+RuntimeDirectoryMode=0750
+ExecStart=/usr/libexec/tam-edge-supervisor run --instance %i
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=35
+UMask=0077
+NoNewPrivileges=yes
+CapabilityBoundingSet=CAP_CHOWN CAP_SYS_PTRACE
+AmbientCapabilities=
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+RestrictNamespaces=yes
+LockPersonality=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+ReadWritePaths=/var/lib/tam-edge/control/%i /var/lib/tam-edge/staging /opt/tam-edge/releases /opt/tam-edge/instances/%i /run/tam-edge/%i
+
+[Install]
+WantedBy=multi-user.target
