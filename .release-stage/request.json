@@ -1,0 +1,30 @@
+{
+  "assets": {
+    "tam-downloads-managed-0.2.0-rc.2-2792dae.tar.gz": {
+      "sha256": "a7f1dc73414033e83f7cdce9d5f281e490237338a65cc0991e6e5d85082e59d6",
+      "size": 35957739
+    }
+  },
+  "existing": {
+    "tam-edge-linux-amd64": {
+      "sha256": "95e3c6239ed1d83729cb96409f5b5cc3d69b24aa98ab2cd8893acc0243d417f5",
+      "size": 10685163
+    },
+    "tam-edge-linux-arm64": {
+      "sha256": "4835b905f7b4d3127188c462af489c1674ecafeea18914d297f76ce2c6197ffc",
+      "size": 9918720
+    },
+    "tam-edge-runtime.manifest.json": {
+      "sha256": "9b67d4497cd7f5abe917a9872818b7ed098cc8be4c12db755bc3a9e4e3f845a9",
+      "size": 604
+    },
+    "tam-edge-runtime.manifest.json.jws": {
+      "sha256": "0e0aeedef0be17b1bed572ad1c9f80526a2ffe3b0f8511ce5af60086a0e7249f",
+      "size": 210
+    }
+  },
+  "format": "tam-release-stage/1",
+  "kind": "downloads-archive",
+  "repository": "radionu/tam-agent",
+  "tag": "managed-0.2.0-rc.2-2792dae"
+}
