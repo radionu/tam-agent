@@ -1,0 +1,31 @@
+[Unit]
+Description=TAM edge unprivileged runtime (%i)
+BindsTo=tam-edge-supervisor@%i.service
+After=tam-edge-supervisor@%i.service
+StartLimitIntervalSec=120
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=tam-edge-%i
+Group=tam-edge-%i
+ExecStart=/opt/tam-edge/instances/%i/current run --instance %i
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=30
+UMask=0077
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+AmbientCapabilities=
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+RestrictNamespaces=yes
+LockPersonality=yes
+RestrictAddressFamilies=AF_UNIX
+ReadWritePaths=/var/lib/tam-edge/runtime/%i
